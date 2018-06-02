@@ -1,4 +1,4 @@
-# Future를 처리하는 방법
+# Future Composition
 
 ## 1. for-comprehension
 
