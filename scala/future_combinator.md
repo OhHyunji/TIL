@@ -10,7 +10,7 @@ Collection에 Combinator가 있듯이 Future에도 Combinator가 있다. (예: m
 Future[A].flatMap[B](f: A=>Future[B]): Future[B]
 ```
 
-- 하나의 Future[A]와 비동기식 함수(f)를 받아서 => 다른 Future를 반환한다.
+- 하나의 Future[A]와 비동기식 함수(f)를 받아서 => 새로운 Future[B]를 반환한다.
 - 입력 Future가 성공적으로 완료되면 f를 호출한다.
 - 이 호출의 결과는 새로운 Future 이며,
 입력 Future[A], 비동기함수(f)가 모두 성공적으로 완료된 경우에만 완료된다.
