@@ -51,3 +51,7 @@ def normalize(raw: RawCredentials) = {
     new Credentials(raw.username.toLowerCase(), raw.password)
 }
 ```
+
+참고: 
+- https://twitter.github.io/scala_school/ko/finagle.html
+- https://twitter.github.io/scala_school/finagle.html
