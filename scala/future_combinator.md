@@ -17,8 +17,7 @@ Future[A].flatMap[B](f: A=>Future[B]): Future[B]
 
 ### Example.
 
-_Future[User]가 있고, 이를 표시하는 Future[Boolean]이 있을 때.
-어떤 사용자 계정이 사용중지 되었는지 확인하는 isBannedAPI를 호출할거다._
+_Future[User]가 있고, 이 계정이 사용중지 되었는지 확인하는 isBannedAPI를 호출할거다._
 
 1. 유저 정보를 가져와서
 2. 이 유저의 계정이 활성상태인지 체크한다.
@@ -32,7 +31,7 @@ _이럴 때 flatMap을 사용할 수 있다._
 ```scala
 val f = for {
     u <- getUser
-    b <- isBanned
+    b <- isBanned(u)
 } yield (u, b)
 ```
 1. 유저 정보를 가져와서
