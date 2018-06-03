@@ -1,8 +1,7 @@
 # Future Combinator
 
-참고:
-- https://twitter.github.io/scala_school/ko/finagle.html
-- https://twitter.github.io/scala_school/finagle.html
+- 원문: https://twitter.github.io/scala_school/ko/finagle.html
+- 원문: https://twitter.github.io/scala_school/finagle.html
 
 Collection에 Combinator가 있듯이 Future에도 Combinator가 있다. (예: map, flatmap)
 
