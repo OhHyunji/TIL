@@ -48,7 +48,7 @@ hidden input은 side door로 넣는것이다.
 
 ```
 input => [function] => output
-		hidden input
+	hidden input
 ```
 
 ### free variable
