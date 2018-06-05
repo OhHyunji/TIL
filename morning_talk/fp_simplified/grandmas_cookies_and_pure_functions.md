@@ -16,9 +16,10 @@
  * for 10 minutes.
  */
  
-def makeCookies(ingredients: List[Ingredient]): Batch[Cookie] = { val cookieDough = mix(ingredients)
-val betterCookieDough = combine(cookieDough, love)
-val cookies = shapeIntoLittleCookies(betterCookieDough) bake(cookies, 350.DegreesFahrenheit, 10.Minutes)
+def makeCookies(ingredients: List[Ingredient]): Batch[Cookie] = { 
+   val cookieDough = mix(ingredients)
+   val betterCookieDough = combine(cookieDough, love)
+   val cookies = shapeIntoLittleCookies(betterCookieDough) bake(cookies, 350.DegreesFahrenheit, 10.Minutes)
 }
 ```
 여기까진 pure function 이었다. 
@@ -58,24 +59,24 @@ input => [function] => output
 
 ## Problems of the impure
 
-그래서 makeCookies 는 이제 impure function이 되었다.
+그래서 _makeCookies_ 는 이제 impure function이 되었다.
 
 ```
 @impure
 def makeCookies ...
 ```
 
-love가 side door로 makeCookies에 들어오기 때문에, makeCookies를 호출할 때마다 다른 결과물을 얻을것이다.
+love가 side door로 _makeCookies_에 들어오기 때문에, _makeCookies_를 호출할 때마다 다른 결과물을 얻을것이다.
 
-- love의 상태는 makeCookies의 결과에 항상 영향을 주는데,
-- makeCookies method signature를 봐서는 love가 영향을 주고있다는것을 알 방법이 없다!!
+- love의 상태는 _makeCookies_의 결과에 항상 영향을 주는데,
+- _makeCookies_ method signature를 봐서는 love가 영향을 주고있다는것을 알 방법이 없다!!
 
 이것이 문제다.
 
 이제 love에 대해 아래와 같이 생각해보자.
 
 > - Does love have a default value?
-> - How is love set before you call makeCookies?
+> - How is love set before you call _makeCookies_?
 > - What happens if love is not set?
 
 이게 보통 impure function을 다룰 때 생각하게 되는 부분들이다. 이제 여기에 parallel/concurrent까지 고민하게되면 훠어어어얼씬 어려워질거다.
