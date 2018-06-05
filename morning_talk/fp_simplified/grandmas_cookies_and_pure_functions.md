@@ -66,7 +66,7 @@ input => [function] => output
 def makeCookies ...
 ```
 
-love가 side door로 _makeCookies_ 에 들어오기 때문에, _makeCookies_를 호출할 때마다 다른 결과물을 얻을것이다.
+love가 side door로 _makeCookies_ 에 들어오기 때문에, _makeCookies_ 를 호출할 때마다 다른 결과물을 얻을것이다.
 
 - love의 상태는 _makeCookies_ 의 결과에 항상 영향을 주는데,
 - _makeCookies_ method signature를 봐서는 love가 영향을 주고있다는것을 알 방법이 없다!!
