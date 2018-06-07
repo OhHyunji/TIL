@@ -1,12 +1,12 @@
 # Custom Exception 
 
-## Exception 정의
+## Exception 정의: extends Exception
 
 ```scala
 class NotFoundUserInfoException extends RuntimeException
 ```
 
-## Exception 발생
+## Exception 발생: Future.exception
 
 api로 userInfo를 가져오고, 없으면 new NotFoundUserInfoException
 
@@ -25,7 +25,7 @@ class SampleService @Inject()(
 
 ```
 
-## Exception 처리
+## Exception 처리: Future.handle
 
 ```scala
 class SampleController @Inject()(
