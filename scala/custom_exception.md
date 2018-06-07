@@ -8,8 +8,9 @@ class NotFoundUserInfoException extends RuntimeException
 
 ## Exception 발생
 
+api로 userInfo를 가져오고, 없으면 new NotFoundUserInfoException
+
 ```scala
-//api로 userInfo를 가져오고, 없으면 new NotFoundUserInfoException
 class SampleService @Inject()(
 	userInfoService: UserInfoService
 ) {
