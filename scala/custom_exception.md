@@ -46,7 +46,7 @@ class SampleController @Inject()(
 
 ```scala
 def toHttpStatus(value: CustomResponseStatus) = value match {
-	case Success => response.Ok
+	case Success => response.ok
 	case NotFoundUser | NotFoundEmail => response.notFound
 	case _ => response.internalServerError
 }
