@@ -1,5 +1,7 @@
 # Custom Exception 
 
+참고: [finatra user-guide](https://twitter.github.io/finatra/user-guide/)
+
 ## Exception 정의: extends Exception
 
 ```scala
