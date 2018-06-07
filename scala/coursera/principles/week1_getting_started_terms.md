@@ -46,3 +46,32 @@ def f(a: Int)(b: Int): Int //type is Int => Int => Int
 - scala.Null: a subtype of any scala.AnyRef.
 - scala.Nothing: a subtype of any other type.
 
+## Type Parameters
+
+Similar to Java generics.
+
+```scala
+class MyClass[T](arg1: T) { ... }  
+new MyClass[Int](1)  
+```
+
+## Pattern Matching
+
+```scala
+userOpt match {
+	case Some(u) => ...
+	case _ => ...
+}
+```
+
+## For-Comprehensions
+
+syntactic sugar for 
+
+1. map
+2. flatMap 
+3. filter 
+
+operations on collections
+
+
