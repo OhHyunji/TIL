@@ -1,4 +1,4 @@
-# Grandma's Cookies(and Pure Functions)
+# 15. Grandma's Cookies(and Pure Functions)
 
 앨빈아저씨가 대학생 새내기에 여자친구를 사귀었는데, 그 여자친구의 할머니께서 쿠키를 만들어서 주심.
 
