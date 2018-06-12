@@ -43,5 +43,11 @@ window.onpageshow = function (event) {
 ios, safari에서 뒤로가기로 접근시 angular의 $scope도 그대로 유지된다. 
 
 
-- $scope.jsondata === undefined 이면 데이터를 처음부터 새로불러오도록 했는데, 
+- `$scope.jsondata === undefined` 이면 데이터를 처음부터 새로불러오도록 했는데, 
 - ios에서는 뒤로가기로 진입시 $scope도 초기화 되지 않아서, 기존 데이터의 다음페이지가 불려오고 있어서 오늘 픽스했다.
+
+참고:
+ 
+- [ios, safari history.back 문제 ](kdsr2z0.github.io/safari_javascript_cache/)
+- [브라우저에서 뒤로가기 수행시 자바스크립트가 실행되지 않는 이유](http://programmingsummaries.tistory.com/380)
+- 
