@@ -50,4 +50,3 @@ ios, safari에서 뒤로가기로 접근시 angular의 $scope도 그대로 유�
  
 - [ios, safari history.back 문제 ](kdsr2z0.github.io/safari_javascript_cache/)
 - [브라우저에서 뒤로가기 수행시 자바스크립트가 실행되지 않는 이유](http://programmingsummaries.tistory.com/380)
-- 
