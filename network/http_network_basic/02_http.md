@@ -1,20 +1,4 @@
-
-## Ch1. 네트워크의 기본은 TCP/IP
-
-일반적으로 사용하고있는 네트워크는 TCP/IP를 기반으로 움직이고있다. HTTP도 그 중 하나다.
-
-TCP/IP는 4Layer로 나뉘어있다.
-
-- 어플리케이션 계층: FTP, DNS, HTTP
-- 트랜스포트 계층: TCP, UDP
-- 네트워크 계층
-- 링크 계층
-
-계층화 장점
-
-- 어느 한 계층이 변경되었을 때, 그 계층만 바꾸면 된다. 위아래 인터페이스를 유지하기만 하면 각 계층의 내부는 자유롭게 설계할 수 있다.
-
-## Ch2. HTTP
+# Ch2. HTTP
 
 HTTP는 상태를 계속 유지하지 않는 스테이트리스(stateless)프로토콜이다.
 
@@ -26,7 +10,7 @@ HTTP는 상태를 계속 유지하지 않는 스테이트리스(stateless)프로
 - 그래서 쿠키가 생겨났다.
 - 쿠키덕분에 HTTP 통신에서도 상태를 계속 관리할 수 있다.
 
-### HTTP Method
+## HTTP Method
 
 - GET
 - POST
@@ -38,7 +22,7 @@ HTTP는 상태를 계속 유지하지 않는 스테이트리스(stateless)프로
 - DELETE
 - 그 외: OPTIONS, TRACE, CONNECT
 
-### 지속연결(Persistent Connections)
+## 지속연결(Persistent Connections)
 
 예전에는 HTTP 통신을 한번 할때마다 매번 TCP를 연결/종료했다.
 
@@ -57,13 +41,13 @@ HTTP는 상태를 계속 유지하지 않는 스테이트리스(stateless)프로
 - TCP 연결/종료 반복하는 오버헤드를 줄여줘서
 - 서버에 대한 부하가 줄었다.
 
-### 파이프라인화
+## 파이프라인화
 
 지속연결은 파이프라인화(HTTP pipelining)를 가능하게했다.
 
 이전에는 request 송신 후 response를 수신할때까지 기다렸다가 그다음 request를 보냈는데, 이제는 response를 기다리지 않고 바로 다음 request를 보낼 수 있다.
 
-### 쿠키
+## 쿠키
 
 HTTP는 stateless 프로토콜이기 때문에, 과거에 주고/받았던 리퀘스트/리스폰스 상태를 모른다.
 (예: 로그인의 경우, 쿠키가 없었다면 페이지를 이동할때마다 다시 로그인해야했을거다!)
