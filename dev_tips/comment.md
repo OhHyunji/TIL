@@ -10,7 +10,7 @@
 ```javascript
 /*
 * name을 가지고 user를 불러온다.
-* param: name 찾을 user의 이름
+* param - name: 찾을 user의 이름
 */
 function getUserByName(name) {
 	return users.find(user => user.name == name);
