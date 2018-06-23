@@ -1,5 +1,10 @@
 # Reactive Systems are
 
+1. Responsive
+2. Resilient
+3. Elastic
+4. Message Driven
+
 ## Responsive(응답성)
 
 > 시스템이 가능한 한 즉각적으로 응답해야한다.
