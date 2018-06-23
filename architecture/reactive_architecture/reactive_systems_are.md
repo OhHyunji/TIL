@@ -34,3 +34,5 @@
 > Reactive System은  asynchronous message-passing에 의존한다.
 
 읽어도 잘 이해가 안간다.. 이것을 내일 TIL 주제로 삼겠다.
+
+참고: [The Reactive Manifesto, 리액티브 선언문](https://www.reactivemanifesto.org/)
