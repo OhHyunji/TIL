@@ -1,5 +1,10 @@
 # Reactive Systems are
 
+1. Responsive
+2. Resilient
+3. Elastic
+4. Message Driven
+
 ## Responsive(응답성)
 
 > 시스템이 가능한 한 즉각적으로 응답해야한다.
@@ -29,3 +34,5 @@
 > Reactive System은  asynchronous message-passing에 의존한다.
 
 읽어도 잘 이해가 안간다.. 이것을 내일 TIL 주제로 삼겠다.
+
+참고: [The Reactive Manifesto, 리액티브 선언문](https://www.reactivemanifesto.org/)
