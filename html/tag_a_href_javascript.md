@@ -34,3 +34,7 @@ href에 javascript 코드를 넣을 수 있다.
 ```
 <a href="javascript:;" onclick=callFunction()>test</a>
 ```
+
+참고: [href="#"의 깔끔한 대안](http://hardworker.tistory.com/4)
+
+참고: [a태그에서 href, onclick사용](http://thingsthis.tistory.com/130)
