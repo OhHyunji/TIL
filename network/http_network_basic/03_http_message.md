@@ -89,3 +89,72 @@ Content-type: multipart/byteranges
 
 - 206(Partial Content) Response 메시지가 복수 내용을 포함할 때 사용된다.
 
+## 3.5 Range Request
+
+"(범위를 지정해서) 일부분만 받는다."
+
+- 예전에는 대용량 이미지나 데이터를 다운로드하기 힘들었다. 다운로드 중에 커넥션이 끊어지면 처음부터 다시 다운로드 해야했기 때문에.
+- 이러한 문제를 해결하기 위해 **resume**이라는 기능이 필요하게 되었다. 
+
+> resume: 이전에 다운로드하고있던 곳으로부터 다운로드를 재개한다.
+
+- 이 기능을 실현하기 위해 엔티티 범위를 지정해서 다운로드해야하는데, 이렇게 **범위를 지정해서 Request**한다. (Range Request)
+
+클라이언트: Request
+
+```
+GET tip.jpg HTTP/1.1
+Host: www.usagidesign.jp
+Range: bytes = 500	1-10000
+```
+
+서버: Response
+
+```
+HTTP/1.1 206 Partial Content
+Date: 2018-06-29 22:50
+Content-Range: bytes 5001-10000
+Content-Length: 5000
+Content-Type: image/jpeg
+```
+
+- 복수 범위의 Range Request인 경우, `multipart/byteranges` 로 Response가 온다.
+- 서버가 Range Request를 지원하지 않는 경우, `200 OK` 상태코드와 함께 완전한 엔티티가 온다.
+
+## 3.6 Content Negotiation
+
+Example.
+
+```
+같은 URI에 엑세스 하더라도 상황에 따라 영어판/한국어판 웹페이지가 보여진다.
+```
+
+### Content Negotiation이란?
+
+- 클라이언트에 더욱 적합한 리소스를 제공하기 위해, 클라이언트와 서버가 리소스 내용에 대해 교섭한다.
+- Request의 헤더 필드를 참고해서 판단한다.
+	- Accept
+	- Accept-Charset
+	- Accept-Encoding
+	- Accept-Language
+	- Content-Language
+
+### Content Negotiation 종류
+
+1. Server-driven Negotiation
+
+	- 서버측에서 콘텐츠 네고시에이션을 한다.
+	- 서버측에서 Request 헤더를 보고 판단해서 자동으로 처리한다.
+	- (단) 브라우저가 보내는 정보를 근거로 하기 때문에, 유저에게 정말로 적절한것이 선택되었다고 할 수 없다.
+
+2. Agent-driven Negotiation
+
+	- 클라이언트 측에서 콘텐츠 네고시에이션을 한다.
+	- 브라우저에 표시되는 선택지 중 유저가 수동으로 선택한다.
+	- 또는 웹페이지에서 OS/브라우저에 따라 PC/Mobile용 웹페이지를 자동으로 전환한다.
+
+3. Transparent Negotiation
+
+	- Server-driven, Agetn-driven 을 혼합한 것이다.
+	- Server, Client가 각각 콘텐츠 네고시에이션을 한다. 
+
