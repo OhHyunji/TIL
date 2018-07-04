@@ -1,4 +1,14 @@
-# HTTP
+# HTTP 
+
+TIL 
+
+```
+1. 서버가 "3xx 리다이렉트"로 응답
+2. 클라이언트는 이 코드를 받으면 응답메시지의 Location 헤더를 보고 새 리소스에 접근한다. 
+
+- 2xx 같은 응답들은 헤더에 상태코드+설명이 써있고, 그 밑에 html 문서가 오던지 요청한 데이터들이 오던지 한다.
+- 하지만 3xx 응답들은 redirect 될 주소만 온다. 데이터를 담을 곳이 없다.
+```
 
 ## HTTP 기본
 
@@ -76,3 +86,5 @@ client: 햄버거 세트 하나랑 포테이토랑 콜라 주세요.
 참고: [301, 302 Redirect 차이](http://nsinc.tistory.com/168)
 
 참고: [웹을 지탱하는 기술](http://xguru.net/1033)
+
+참고: [redirect 시에 데이터를 넘기고 싶어요(feat. HTTP)](https://milooy.wordpress.com/2016/03/03/pass-data-through-redirect-in-django/)
