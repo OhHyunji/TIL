@@ -74,6 +74,8 @@ Hearders can be grouped according to **how proxies handle them**:
 	> - hop-by-hop headers may be set using the Connection(in General Header Field)
 	> - hop-by-hop headers: Connection, Keep-Alive, Proxy-Authenticate, Proxy-Authorization, Trailer, TE, Transfer-Encoding, Upgrade. (이 8개 이외 헤더필드들은 모두 end-to-end header로 분류된다.)
 	
+참고: [MDN HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+
 ### 종류(자세히)
 
 #### 1. General Header Fields
