@@ -4,6 +4,8 @@
 
 Armeria는 Java, Netty, HTTP/2, RPC, Thrift에 기반한 LINE의 오픈소스 리액티브 비동기 마이크로 서비스 프레임워크다.
 
+- [armeria github](https://github.com/line/armeria)
+
 ### Why Armeria
 
 비동기여야 하는 이유?
@@ -82,6 +84,6 @@ future
 >
 > 이런 서버 구조, 개념 탄탄히 공부해서 다시 들으면 훠어얼씬 재미있게 들을 것 같다.
 
-## Redis at LINE
+## Redis at LINE, 최종열
 
 LINE에서는 메시징 서비스를 위한 Storage system으로 Redis, HBase, Kafka를 사용하고있다. 
