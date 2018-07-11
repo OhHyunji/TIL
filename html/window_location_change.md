@@ -1,5 +1,12 @@
 # window.location
 
+TIL
+
+```
+히스토리에 안쌓고 이동할 때: replace()
+히스토리에 쌓고 이동할 때: assign()
+```
+
 ## The difference between replace() and assign()
 
 replace()
