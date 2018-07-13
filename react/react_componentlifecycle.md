@@ -1,0 +1,89 @@
+# React Component Lifecycle
+
+## 컴포넌트 초기 생성
+
+컴포넌트가 브라우저에 나타나기 전
+
+### constructor
+
+```javascript
+constructor(props) {
+	super(props);
+}
+```
+
+- 생성자. 컴포넌트가 새로 만들어질때마다 호출된다.
+
+### <s>componentWillMount</s>
+
+- 컴포넌트가 화면에 나타나기 직전에 호출된다.
+- 기존에 serverSide에서 호출하는 용도로 사용됬었는데 React **v16.3에서 deprecated**되었다. v16.3 이후부터는 `UNSAFE_componentWillMount()`라는 이름으로 사용된다.
+- 기존에 이 위치에서 처리하던 부분은 `constructor`나 `componentDidMount`에서 처리한다.
+
+### componentDidMount
+
+- 컴포넌트가 화면에 나타나면 호출된다.
+- 여기서는 주로 
+	1. D3처럼 DOM을 사용해야하는 외부 라이브러리 연동을 하거나, 
+	2. fetch를 통해 ajax요청을 하거나,
+	3. DOM 속성을 읽거나 변경하는 작업을 한다.
+
+## 컴포넌트 업데이트
+
+props의 변화, state의 변화 => 컴포넌트 업데이트
+
+### <s>componentWillReceiverProps</s>
+
+```javascript
+componentWillReceiveProps(nextProps) {
+  // this.props 는 아직 바뀌지 않은 상태
+}
+```
+
+- 컴포넌트가 새로운 props를 받으면 호출된다.
+- 여기서는 주로
+	1. state가 props에 따라 변해야하는 로직을 작성한다.
+	2. 새로받게될 props는 nextProps로 조회할 수 있다.
+	3. 이 때 this.props는 prevProps 값이 들어있다.
+- 이 API도 **v16.3에서 deprecated**된다. v16.3 이후부터는 `UNSAFE_componentWillReceiveProps()`라는 이름으로 사용된다.
+
+### [new] static getDerivedStateFromProps
+
+v16.3 이후에 새로 생겼다.
+
+```javascript
+static getDerivedStateFromProps(nextProps, prevState) {
+	//setState가 아니라,
+	//특정 props값이 바뀔 때 설정하고싶은 state값을 return한다.
+	
+	//Example1.
+	if(nextProps.value !== prevState.value) {
+		return {value: nextProps.value};
+	}
+	
+	//Example2.
+	return null;
+	//==따로 업데이트 할 것 없음!	
+}
+```
+
+- 여기서는 주로
+	1. props로 받아온 값을 state로 동기화하는 작업을 처리한다.
+
+### shouldComponentUpdate
+
+```javascript
+shouldComponentUpdate(nextProps, nextState) {
+	//return true;		//업데이트 함. 
+	//return false; 	//업데이트 안함.
+}
+```
+
+- 이 API는 **컴포넌트를 최적화하는 작업**에서 매우 유용하게 사용된다.
+	- 리액트는 변화가 발생하는 부분만 업데이트해서 성능이 잘나온다.
+	- 변화가 발생하는 부분만 감지가히 위해서 virtual DOM에 한번 그린다.
+	- 즉, 현재 컴포넌트의 상태가 업데이트되지 않아도 **부모 컴포넌트가 리렌더링 되면 자식컴포넌트들도 렌더링된다.** (렌더링된다. == `render()`함수가 호출된다.)
+	- 이 함수는 기본적으로 true를 반환한다. 우리가 따로 작성해줘서 조건에 따라 false를 반환하면 => 해당 조건에서는 render 함수를 호출하지 않는다.
+		- 리렌더링 할 필요 없는데 자동으로 리렌더링 되는것은 cpu자원 낭비하고있는 것이니, 렌더링이 굳이 불필요한 상황을 명시헤서 false를 반환한다.
+
+### componentWillUpdate
