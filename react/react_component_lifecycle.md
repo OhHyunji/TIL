@@ -86,4 +86,36 @@ shouldComponentUpdate(nextProps, nextState) {
 	- 이 함수는 기본적으로 true를 반환한다. 우리가 따로 작성해줘서 조건에 따라 false를 반환하면 => 해당 조건에서는 render 함수를 호출하지 않는다.
 		- 리렌더링 할 필요 없는데 자동으로 리렌더링 되는것은 cpu자원 낭비하고있는 것이니, 렌더링이 굳이 불필요한 상황을 명시헤서 false를 반환한다.
 
-### componentWillUpdate
+### <s>componentWillUpdate</s>
+
+- 이 API는 `shouldComponentUpdate`에서 true를 반환했을 때만 호출된다.
+- 여기서는 주로
+	1. 애니메이션 효과를 초기화하거나
+	2. 이벤트 리스너를 없애는 작업을 한다.
+- 이 함수가 호출되고난 다음에는 `render()`가 호출된다.
+- 이 API도 **v16.3 이후 deprecated**된다.
+
+### [new] getSnapshotBeforeUpdate()
+
+- 이 API는 아래 시점에서 호출된다.
+	1. render()
+	2. **getSnapshotBeforeUpdate()**
+	3. 실제 DOM에서 변화 발생
+	4. componentDidUpdate
+- 이 API를 통해서 DOM 변화가 일어나기 직전의 DOM상태를 가져오고,
+- 여기서 return하는 값은 componentDidUpdate의 세번째 param으로 전해진다.
+
+### componentDidUpdate
+
+- 컴포넌트에서 render() 를 호출하고난 다음에 호출된다.
+- 이 시점에서는 this.props, this.state가 바뀌어있다.
+- params를 통해 이전값인 prevProps, prevState를 조회할 수 있다.
+- snapshot은 세번째 param으로 받아온다.
+
+```javascript
+componentDidUpdate(prevProps, prevState, snapshot) {
+	...
+}
+```
+
+참고: [react life cycle](https://velopert.com/3631)
