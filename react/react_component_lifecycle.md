@@ -118,4 +118,49 @@ componentDidUpdate(prevProps, prevState, snapshot) {
 }
 ```
 
-참고: [react life cycle](https://velopert.com/3631)
+## 컴포넌트 제거
+
+컴포넌트가 더이상 필요하지 않게 되면 호출된다.
+
+### componentWillUnmount()
+
+- 여기서는 주로
+	1. 등록했던 이벤트를 제거하고
+	2. setTimeout을 걸었다면 clearTimeout으로 제거한다.
+	3. 이밖에 사용한 외부라이브러리 중 dispose 기능이 있다면 여기서 호출한다.
+
+## 컴포넌트 에러발생
+
+render()에서 에러가 발생하면 리액트 앱이 크래시난다. 그런 상황에 아래 API를 유용하게 사용할 수 있다.
+
+### componentDidCatchㅎ
+```
+componentDidCatch(error, info) {
+	this.setState({
+		error: true
+	});
+}
+```
+	
+- 에러가 발생시 componentDidCatch API를 활용해서 render에서 this.state.error 값에 따라 에러페이지를 띄울 수 있다.
+- 주의: 
+	- 컴포넌트 자신의 render()함수에서 발생하는 에러는 잡을 수 없지만, 
+	- 자식 컴포넌트의 내부에서 발생하는 에러들은 잡일 수 있다.
+- 보통 렌더링 부분에서 오류가 발생하는 것은 사전에 방어해야한다.
+
+```
+//존재하지 않는 함수를 호출하려고 할 때
+this.props.onClick();
+
+//배열이나 객체가 올 줄 알았는데 존재하지 않을 때
+this.props.object.value
+this.props.array.length
+
+//이런 것들은 render함수에서 아래와 같이 방어할 수 있다.
+render() {
+	if(!this.props.object || !this.props.array || this.props.array.length===0) return null;
+	//object, array를 사용하는 코드
+}
+```
+
+참고: [react life cycle]()
