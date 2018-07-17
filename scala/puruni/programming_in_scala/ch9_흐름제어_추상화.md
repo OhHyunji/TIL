@@ -1,5 +1,12 @@
 # Ch9. 흐름제어 추상화
 
+TIL
+
+```
+- Higher-order function: 함수를 인자로 받을 수 있다. -> 자유도가 높다.
+- Currying: 커링한 함수는 인자를 한개씩 받는다.
+```
+
 ## 9.1 코드 중복 줄이기
 
 ### Higher-order function
