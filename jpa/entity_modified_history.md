@@ -16,6 +16,10 @@ Entity에 대한 modified history 이력을 db에 남기고싶다.
 
 Entity 클래스에 `@Audited` 어노테이션을 붙이고 이 이력이 쌓일 테이블을 만들어두면 알아서 Entity에 대한 변경이력이 쌓인다.
 
+- REV: commit hash랑 비슷한 개념
+- REVTYPE: 0=add, 1=mod, 2=del
+- 참고: [hibernate docs](https://docs.jboss.org/envers/docs/)
+
 참고: [Spring Boot + Envers로 엔티티 이력관리하기](http://haviyj.tistory.com/40)
 
 참고: [spring-data-jpa Auditing을 추가해보자](http://blusky10.tistory.com/316)
