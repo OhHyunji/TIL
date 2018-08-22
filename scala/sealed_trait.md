@@ -32,3 +32,4 @@ status match {
 - Fail, NoSuchUser는 error레벨 로그로 찍히고,
 - NoSuchUserEmail은 warning레벨 로그로 찍힌다.
 
+참고: [stackoverflow-what is a sealed trait](https://stackoverflow.com/questions/11203268/what-is-a-sealed-trait)
