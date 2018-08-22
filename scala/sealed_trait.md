@@ -21,7 +21,7 @@ object ResponseStatus {
 ```
 pattern matching에 활용할 수 있다.
 
-```
+```scala
 status match {
 	case Success => info(s"[Success] $status")
 	case s:ErrorStatus => error(s"[Fail] $s")
