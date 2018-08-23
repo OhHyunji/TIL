@@ -21,7 +21,7 @@ object ResponseStatus {
 ```
 pattern matching에 활용할 수 있다.
 
-```
+```scala
 status match {
 	case Success => info(s"[Success] $status")
 	case s:ErrorStatus => error(s"[Fail] $s")
@@ -32,3 +32,4 @@ status match {
 - Fail, NoSuchUser는 error레벨 로그로 찍히고,
 - NoSuchUserEmail은 warning레벨 로그로 찍힌다.
 
+참고: [stackoverflow-what is a sealed trait](https://stackoverflow.com/questions/11203268/what-is-a-sealed-trait)
