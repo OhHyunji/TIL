@@ -77,3 +77,5 @@ object Test extends App {
   Sample.info(Foo(1, "azalea", 27))
 }
 ```
+
+참고: [scala type class](http://www.bench87.com/content/21)
