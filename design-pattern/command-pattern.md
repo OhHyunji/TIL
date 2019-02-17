@@ -94,7 +94,7 @@ public class SimpleRemoteControl {
 ```java
 public class RemoteControlTest {
     public static void main(String[] args) {
-		// 전등을 켜는 Command 객체 생성
+	// 전등을 켜는 Command 객체 생성
         Light light = new Light();
         LightOnCommand lightOnCommand = new LightOnCommand(light);
         
