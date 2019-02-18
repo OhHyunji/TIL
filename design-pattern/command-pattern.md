@@ -223,3 +223,16 @@ MacroCommand partyOnCommand = new MacroCommand(commands);
 - 요청 내역을 큐에 저장할 수 있다. (Head First Design Pattern, p266)
 - 요청을 로그에 기록할 수 있다. (Head First Design Pattern, p267)
 - 작업취소 기능도 지원 가능하다.
+
+## 생각
+
+- 실행하고자 하는 Receiver 들의 인터페이스가 다를 때 커맨드패턴을 사용해서 `execute()`로 인터페이스를 통일시키니까 유용하다.
+   - 서로 다른 DTO를 가진 데이터모델을 로그로 남기는 경우도 유용할 것 같다.
+   - Command 인터페이스의 method 를 printLog()로 두고
+   - ItemLogCommand, UserLogCommand, BrandLogCommand 이런 concreateCommand 객체를 만들어서 printLog()를 구현하고
+   - 클라이언트에서는 printLog()를 호출
+- 말그대로 command니까 뭔가 시키고 끝. (=`execute()` 메서드의 return 타입이 void)
+- 명령별로 집중해서 command 객체를 구현할 수 있고, 이를 조립하면 되니까 편한것 같다. 
+   - 단, command의 순서가 보장되어야 하는 경우는 커맨드패턴이 어울리지 않음. 
+   - 예: 주문처리, 결제처리, 쿠폰생성같은 flow
+ 
