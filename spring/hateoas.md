@@ -135,7 +135,7 @@ Resource<Employee> one(@PathVariable Long id) {
 
 
 
-exmple. 만약 employee를 생성한 후 response의 _links에는 아래와 같은 rel이 있을 수 있다.
+example. 만약 employee를 생성한 후 response의 _links에는 아래와 같은 rel이 있을 수 있다.
 
 * self
 * profile: 나자신 데이터모양에 대한 설명서
