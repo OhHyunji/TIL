@@ -1,4 +1,4 @@
-#HATEOAS
+# HATEOAS
 
 **Hypermedia** As The Engine Of Application **State**
 
